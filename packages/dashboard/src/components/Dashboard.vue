@@ -29,7 +29,7 @@
         </div>
         <div class="highlight-details">
           <i class="pi pi-search"></i>
-          <span>Total Queries</span>
+          <span>Total Queries </span>
           <span class="count">523</span>
         </div>
       </div>
