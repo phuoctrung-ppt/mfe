@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
-
+      - run : pwd
       - uses: google-github-actions/setup-gcloud@v2
         env:
           SERVICE_ACCOUNT_EMAIL: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
