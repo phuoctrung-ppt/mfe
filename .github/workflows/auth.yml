@@ -25,7 +25,8 @@ jobs:
       - name: Authenticate with GCP
         uses: google-github-actions/auth@v2
         with:
-          credential_json: ${{secrets.GCP_PRIVATE_KEY}}
+          credentials_json: ${{secrets.GCP_PRIVATE_KEY}}
+          workload_identity_provider: ${{secrets.GCP_PRIVATE_KEY}}
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
