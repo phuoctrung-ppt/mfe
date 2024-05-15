@@ -7,30 +7,31 @@ on:
     paths:
       - 'packages/auth/**'
 
-defaults:
-  run:
-    working-directory: packages/auth
-
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
-      - run : pwd
-
-      - name: GCP Auth 
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies and build
+        run: |
+          cd packages/auth
+          npm install
+          npm run build
+          pwd
+      
+      - name: Authenticate with GCP
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{secrets.GCP_PRIVATE_KEY}}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
+          credential_json: ${{secrets.GCP_PRIVATE_KEY}}
 
-      - uses: google-github-actions/setup-gcloud@v2
-      - name: Deploy
-        uses: 'google-github-actions/upload-cloud-storage@v2'
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to Cloud Storage
+        uses: google-github-actions/upload-cloud-storage@v2
         with:
           path: 'packages/auth/dist'
           destination: 'mfe-deploy/auth/latest'
-          
