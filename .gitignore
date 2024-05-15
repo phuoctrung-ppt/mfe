@@ -1,0 +1,6 @@
+/packages/*/dist/*
+
+/packages/turbor/*
+
+/packages/*/node_modules/*
+/packages/node_modules/*

@@ -1,0 +1,19 @@
+{
+  "name": "packages",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "./@repo/auth/*",
+    "./@repo/container/*",
+    "./@repo/dashboard/*",
+    "./@repo/marketing/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "turbo": "^1.13.3"
+  }
+}
