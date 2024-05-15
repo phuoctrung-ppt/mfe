@@ -28,6 +28,6 @@ jobs:
       - name: Deploy
         uses: 'google-github-actions/upload-cloud-storage@v2'
         with:
-          path: '/packages/auth/dist'
-          destination: 'auth/latest'
+          path: '../../packages/auth/dist'
+          destination: 'mfe-deploy/auth/latest'
           
